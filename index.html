@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Droit de l'entreprise - Détails complets sur le commerçant et les actes de commerce</title>
+    <title>Droit des Sociétés Commerciales - Guide Complet</title>
     <style>
         * {
             margin: 0;
@@ -11,716 +11,1384 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+        
         body {
             background-color: #f8fafc;
-            color: #2d3748;
+            color: #1e293b;
             line-height: 1.7;
             padding: 20px;
-            max-width: 1200px;
+        }
+        
+        .container {
+            max-width: 1300px;
             margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
+        
+        /* En-tête */
         header {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: linear-gradient(135deg, #0f766e, #14b8a6, #0d9488);
             color: white;
-            padding: 35px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            padding: 35px 30px;
+            position: relative;
+            overflow: hidden;
         }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
+        
         .subtitle {
             font-size: 1.2rem;
             opacity: 0.95;
-            text-align: center;
             font-weight: 300;
-            margin-bottom: 15px;
+            max-width: 800px;
+            margin: 0 auto 15px;
         }
-        .course-info {
-            background: rgba(255,255,255,0.1);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            font-size: 0.95rem;
+        
+        /* Navigation des langues */
+        .language-nav {
+            display: flex;
+            justify-content: center;
+            margin: 25px 0 15px;
+            flex-wrap: wrap;
         }
+        
+        .lang-tab {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            margin: 0 8px 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .lang-tab:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        .lang-tab.active {
+            background-color: white;
+            color: #0f766e;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Contenu principal */
         .main-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
+            display: flex;
+            min-height: 700px;
         }
-        .section {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            border-top: 6px solid #3498db;
+        
+        /* Table des matières */
+        .toc {
+            width: 280px;
+            background-color: #f1f5f9;
+            padding: 25px 20px;
+            border-right: 1px solid #e2e8f0;
+            overflow-y: auto;
+            max-height: 800px;
+            position: sticky;
+            top: 0;
         }
-        .section h2 {
-            color: #2c3e50;
-            margin-bottom: 25px;
-            font-size: 1.7rem;
+        
+        .toc h3 {
+            color: #0f766e;
+            margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #ecf0f1;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .section h2 i {
-            font-size: 1.4rem;
-        }
-        .sub-section {
-            margin-bottom: 25px;
-        }
-        .sub-section h3 {
-            color: #2980b9;
-            margin-bottom: 15px;
+            border-bottom: 2px solid #cbd5e1;
             font-size: 1.3rem;
-            padding-left: 10px;
-            border-left: 4px solid #3498db;
         }
-        .qa-item {
-            margin-bottom: 25px;
-            padding: 20px;
-            background: #f8fafc;
-            border-radius: 8px;
-            border-left: 4px solid #2ecc71;
+        
+        .toc ul {
+            list-style-type: none;
         }
-        .question {
-            font-weight: 700;
-            color: #2c3e50;
+        
+        .toc li {
             margin-bottom: 12px;
-            font-size: 1.15rem;
+            position: relative;
+        }
+        
+        .toc a {
+            color: #475569;
+            text-decoration: none;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .toc a:hover {
+            background-color: #e2e8f0;
+            color: #0f766e;
+            border-left-color: #14b8a6;
+        }
+        
+        .toc a.active {
+            background-color: #ccfbf1;
+            color: #0f766e;
+            border-left-color: #0d9488;
+            font-weight: 600;
+        }
+        
+        /* Contenu */
+        .content-area {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+        
+        /* Sections */
+        .section {
+            margin-bottom: 45px;
+            padding-bottom: 35px;
+            border-bottom: 1px solid #e2e8f0;
+            scroll-margin-top: 20px;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        h2 {
+            color: #0f766e;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+            font-size: 1.8rem;
+            position: relative;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background-color: #14b8a6;
+        }
+        
+        /* Questions détaillées */
+        .detailed-question {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .detailed-question:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        .question-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .q-number {
+            background-color: #14b8a6;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
         }
-        .question:before {
-            content: "▶";
-            color: #e74c3c;
+        
+        .q-title {
+            color: #0f766e;
+            font-size: 1.3rem;
+            flex: 1;
+            line-height: 1.4;
+        }
+        
+        .answer-content {
+            padding-left: 47px;
+            color: #475569;
+        }
+        
+        .answer-content p {
+            margin-bottom: 15px;
+        }
+        
+        /* Listes spéciales */
+        .feature-list {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #14b8a6;
+        }
+        
+        .feature-list h4 {
+            color: #0f766e;
+            margin-bottom: 10px;
             font-size: 1.1rem;
         }
-        .answer {
-            color: #4a5568;
-            padding-left: 24px;
+        
+        .feature-list ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
         }
-        .answer ul, .answer ol {
-            margin: 12px 0 12px 25px;
-        }
-        .answer li {
+        
+        .feature-list li {
             margin-bottom: 8px;
-            padding-left: 5px;
+            position: relative;
+            padding-left: 10px;
         }
-        .legal-box {
-            background: #e8f4fc;
-            border: 1px solid #a3d5ff;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 0.95rem;
+        
+        .feature-list li::before {
+            content: "•";
+            color: #14b8a6;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
         }
-        .legal-ref {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            font-style: italic;
-            margin-top: 10px;
-            padding: 8px 12px;
-            background: #f1f8ff;
-            border-radius: 5px;
-            display: inline-block;
-        }
-        .warning {
-            background: #fff8e1;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        .example {
-            background: #f0f9ff;
-            border-left: 4px solid #4fc3f7;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-            font-size: 0.95rem;
-        }
-        table {
+        
+        /* Tableaux comparatifs */
+        .comparison-table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            background: white;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
         }
-        th {
-            background: #3498db;
+        
+        .comparison-table th {
+            background-color: #0f766e;
             color: white;
             padding: 15px;
             text-align: left;
             font-weight: 600;
         }
-        td {
+        
+        .comparison-table td {
             padding: 15px;
             border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
         }
-        tr:hover {
-            background: #f7fafc;
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8fafc;
         }
-        .comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+        
+        .comparison-table tr:hover {
+            background-color: #f0fdfa;
+        }
+        
+        /* Exemples pratiques */
+        .example-box {
+            background-color: #ecfdf5;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #10b981;
+        }
+        
+        .example-title {
+            color: #065f46;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .example-title::before {
+            content: "💡";
+        }
+        
+        /* Important notes */
+        .important-note {
+            background-color: #fef3c7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .important-title {
+            color: #92400e;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .important-title::before {
+            content: "⚠️";
+        }
+        
+        /* Styles pour les formalités */
+        .formality-list {
+            counter-reset: formality-counter;
             margin: 20px 0;
         }
-        .comparison-box {
-            background: white;
-            padding: 20px;
+        
+        .formality-item {
+            background-color: #f8fafc;
             border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            border-top: 4px solid #3498db;
-        }
-        .comparison-box h4 {
-            color: #2c3e50;
+            padding: 20px;
             margin-bottom: 15px;
-            text-align: center;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #e2e8f0;
+            border-left: 4px solid #8b5cf6;
+            position: relative;
+            padding-left: 70px;
         }
+        
+        .formality-item::before {
+            counter-increment: formality-counter;
+            content: counter(formality-counter);
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background-color: #8b5cf6;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .formality-title {
+            color: #5b21b6;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        /* Styles pour l'arabe */
+        .arabic {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        .arabic h2, .arabic h3, .arabic h4 {
+            color: #0f766e;
+        }
+        
+        .arabic .toc a {
+            border-left: none;
+            border-right: 3px solid transparent;
+        }
+        
+        .arabic .toc a:hover {
+            border-right-color: #14b8a6;
+        }
+        
+        .arabic .toc a.active {
+            border-right-color: #0d9488;
+        }
+        
+        .arabic h2::after {
+            left: auto;
+            right: 0;
+        }
+        
+        .arabic .question-header {
+            flex-direction: row-reverse;
+        }
+        
+        .arabic .q-number {
+            margin-right: 0;
+            margin-left: 15px;
+        }
+        
+        .arabic .answer-content {
+            padding-left: 0;
+            padding-right: 47px;
+        }
+        
+        .arabic .feature-list, .arabic .formality-item {
+            border-left: none;
+            border-right: 4px solid;
+        }
+        
+        .arabic .feature-list {
+            border-right-color: #14b8a6;
+        }
+        
+        .arabic .formality-item {
+            border-right-color: #8b5cf6;
+            padding-left: 20px;
+            padding-right: 70px;
+        }
+        
+        .arabic .formality-item::before {
+            left: auto;
+            right: 20px;
+        }
+        
+        .arabic .example-box, .arabic .important-note {
+            border-left: none;
+            border-right: 4px solid;
+        }
+        
+        .french, .arabic {
+            display: none;
+        }
+        
+        .french.active, .arabic.active {
+            display: block;
+        }
+        
+        /* Pied de page */
         footer {
+            background-color: #1e293b;
+            color: #cbd5e1;
+            padding: 25px 30px;
             text-align: center;
-            margin-top: 50px;
-            padding: 25px;
-            color: #718096;
-            font-size: 0.95rem;
-            border-top: 1px solid #e2e8f0;
-            background: white;
-            border-radius: 10px;
+            margin-top: 40px;
         }
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-content {
+                flex-direction: column;
             }
+            
+            .toc {
+                width: 100%;
+                position: static;
+                max-height: none;
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            
+            .toc ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .toc li {
+                margin-bottom: 0;
+            }
+            
+            .toc a {
+                padding: 8px 12px;
+                white-space: nowrap;
+            }
+        }
+        
+        @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
             }
-            .section {
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .content-area {
                 padding: 20px;
             }
-            .comparison {
-                grid-template-columns: 1fr;
+            
+            .detailed-question {
+                padding: 20px;
+            }
+            
+            .question-header {
+                flex-direction: column;
+            }
+            
+            .q-number {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+            
+            .answer-content {
+                padding-left: 0;
+            }
+            
+            .formality-item {
+                padding-left: 20px;
+                padding-top: 60px;
+            }
+            
+            .formality-item::before {
+                top: 15px;
+                left: 15px;
+            }
+            
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .arabic .question-header {
+                flex-direction: column;
+            }
+            
+            .arabic .q-number {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+            
+            .arabic .answer-content {
+                padding-right: 0;
+            }
+            
+            .arabic .formality-item {
+                padding-right: 20px;
+                padding-top: 60px;
+            }
+            
+            .arabic .formality-item::before {
+                right: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Droit de l'entreprise - Axe I</h1>
-        <p class="subtitle">Le commerçant et les actes de commerce - Document détaillé</p>
-        <div class="course-info">
-            <p><strong>Enseignante :</strong> Pr. AANAIBER Meryem</p>
-            <p><strong>Année universitaire :</strong> 2025-2026 | <strong>Semestre :</strong> 3 Sciences Économiques</p>
-            <p><strong>Objectif :</strong> Comprendre les fondements juridiques de l'activité commerciale au Maroc</p>
-        </div>
-    </header>
-
-    <div class="main-content">
-        <!-- SECTION 1: INTRODUCTION -->
-        <div class="section">
-            <h2><i>📚</i> Introduction au droit de l'entreprise</h2>
-            <div class="qa-item">
-                <div class="question">Quelle est la définition complète du droit de l'entreprise ?</div>
-                <div class="answer">
-                    Le droit de l'entreprise est une <strong>branche spécialisée du droit privé</strong> qui réglemente l'ensemble des aspects juridiques de la vie économique des entreprises. Son champ d'application couvre :
-                    <ul>
-                        <li>La <strong>création</strong> de l'entreprise (choix de la forme juridique, formalités de constitution)</li>
-                        <li>Son <strong>organisation</strong> interne (organes de direction, répartition des pouvoirs)</li>
-                        <li>Son <strong>fonctionnement</strong> au quotidien (contrats, relations avec les partenaires)</li>
-                        <li>Ses <strong>relations externes</strong> (avec les clients, fournisseurs, concurrents, administrations)</li>
-                        <li>Sa <strong>transformation</strong> et sa <strong>disparition</strong> (fusion, scission, liquidation)</li>
-                    </ul>
-                    
-                    <div class="legal-box">
-                        <strong>Caractéristiques principales :</strong><br>
-                        1. <strong>Droit dynamique et évolutif</strong> : S'adapte aux mutations économiques et technologiques<br>
-                        2. <strong>Droit pluridisciplinaire</strong> : Combine plusieurs branches du droit<br>
-                        3. <strong>Droit économique</strong> : A pour finalité le développement de l'activité économique<br>
-                        4. <strong>Droit professionnel</strong> : Régit l'activité des professionnels du commerce
-                    </div>
-                    
-                    <div class="comparison">
-                        <div class="comparison-box">
-                            <h4>Sources formelles</h4>
-                            <ul>
-                                <li>Code de commerce</li>
-                                <li>Lois spéciales (sociétés, concurrence, propriété intellectuelle)</li>
-                                <li>Dahir des Obligations et des Contrats (DOC)</li>
-                                <li>Jurisprudence commerciale</li>
-                                <li>Usages et pratiques commerciales</li>
-                                <li>Traités internationaux</li>
-                            </ul>
-                        </div>
-                        <div class="comparison-box">
-                            <h4>Branches connexes</h4>
-                            <ul>
-                                <li><strong>Droit commercial</strong> : Activités des commerçants</li>
-                                <li><strong>Droit des sociétés</strong> : Personnes morales commerciales</li>
-                                <li><strong>Droit du travail</strong> : Relations employeur-salariés</li>
-                                <li><strong>Droit fiscal</strong> : Obligations financières envers l'État</li>
-                                <li><strong>Droit de la concurrence</strong> : Régulation du marché</li>
-                                <li><strong>Droit de la consommation</strong> : Protection des consommateurs</li>
-                            </ul>
-                        </div>
-                    </div>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Droit des Sociétés Commerciales</h1>
+                <p class="subtitle">Guide complet des sociétés commerciales en droit marocain : du contrat de société aux formalités de constitution</p>
+                
+                <div class="language-nav">
+                    <button class="lang-tab active" onclick="switchLanguage('french')">
+                        <span>🇫🇷</span> Français
+                    </button>
+                    <button class="lang-tab" onclick="switchLanguage('arabic')">
+                        <span>🇲🇦</span> العربية
+                    </button>
                 </div>
             </div>
-        </div>
-
-        <!-- SECTION 2: LE COMMERÇANT -->
-        <div class="section">
-            <h2><i>👨‍💼</i> Le commerçant : Définition et statut</h2>
+        </header>
+        
+        <div class="main-content">
+            <!-- Table des matières française -->
+            <nav class="toc french active" id="french-toc">
+                <h3>Table des matières</h3>
+                <ul>
+                    <li><a href="#sec1" onclick="highlightTocLink(this)">I. Le Contrat de Société</a></li>
+                    <li><a href="#sec2" onclick="highlightTocLink(this)">II. Formalités de Constitution</a></li>
+                    <li><a href="#sec3" onclick="highlightTocLink(this)">III. Sociétés de Personnes</a></li>
+                    <li><a href="#sec4" onclick="highlightTocLink(this)">IV. Sociétés de Capitaux</a></li>
+                    <li><a href="#sec5" onclick="highlightTocLink(this)">V. SARL - Forme Hybride</a></li>
+                    <li><a href="#sec6" onclick="highlightTocLink(this)">VI. Tableau Comparatif</a></li>
+                </ul>
+            </nav>
             
-            <div class="sub-section">
-                <h3>1. Définition légale du commerçant</h3>
-                <div class="qa-item">
-                    <div class="question">Comment le Code de commerce marocain définit-il le commerçant ?</div>
-                    <div class="answer">
-                        L'article 6 du Code de commerce marocain stipule : <strong>"Est commerçant toute personne physique ou morale qui exerce des actes de commerce et en fait sa profession habituelle."</strong>
+            <!-- Table des matières arabe -->
+            <nav class="toc arabic" id="arabic-toc">
+                <h3>جدول المحتويات</h3>
+                <ul>
+                    <li><a href="#sec1-ar" onclick="highlightTocLink(this)">I. عقد الشركة</a></li>
+                    <li><a href="#sec2-ar" onclick="highlightTocLink(this)">II. إجراءات التأسيس</a></li>
+                    <li><a href="#sec3-ar" onclick="highlightTocLink(this)">III. شركات الأشخاص</a></li>
+                    <li><a href="#sec4-ar" onclick="highlightTocLink(this)">IV. شركات الأموال</a></li>
+                    <li><a href="#sec5-ar" onclick="highlightTocLink(this)">V. شركة التضامن</a></li>
+                    <li><a href="#sec6-ar" onclick="highlightTocLink(this)">VI. جدول مقارن</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Contenu en français -->
+            <div class="content-area">
+                <div class="french active" id="french-content">
+                    <!-- Section 1 -->
+                    <section class="section" id="sec1">
+                        <h2>I. Le Contrat de Société</h2>
                         
-                        <div class="example">
-                            <strong>Analyse des éléments de la définition :</strong><br>
-                            • <strong>"Personne physique ou morale"</strong> : Le commerçant peut être un individu ou une société<br>
-                            • <strong>"Exerce des actes de commerce"</strong> : Critère objectif basé sur la nature des activités<br>
-                            • <strong>"En fait sa profession habituelle"</strong> : Critère subjectif impliquant la régularité et la permanence
-                        </div>
-                        
-                        <div class="warning">
-                            <strong>Attention :</strong> La qualité de commerçant est une <strong>qualification légale</strong> qui produit des effets juridiques spécifiques (régime de preuve, compétence juridictionnelle, obligations particulières).
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sub-section">
-                <h3>2. Les trois critères essentiels de la commercialité</h3>
-                <div class="qa-item">
-                    <div class="question">Quels sont les trois critères cumulatifs pour être qualifié de commerçant ?</div>
-                    <div class="answer">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Critère</th>
-                                    <th>Explication</th>
-                                    <th>Exemples</th>
-                                    <th>Jurisprudence</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>1. Actes de commerce</strong></td>
-                                    <td>Réalisation d'opérations figurant dans la liste légale des actes commerciaux (Art. 6 à 10 du Code de commerce)</td>
-                                    <td>Achat pour revendre, opérations de banque, activités industrielles</td>
-                                    <td>Doctrine classique : recherche du profit par la spéculation</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>2. Habitude professionnelle</strong></td>
-                                    <td>Répétition des actes avec une certaine régularité, organisation et permanence</td>
-                                    <td>Activité journalière sur un marché vs achat ponctuel</td>
-                                    <td>Cour de cassation : "une activité organisée et répétée"</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>3. Exercice indépendant</strong></td>
-                                    <td>Agir en son nom propre, pour son compte, en supportant les risques</td>
-                                    <td>Commerçant individuel vs salarié ou gérant mandataire</td>
-                                    <td>Exclusion des personnes subordonnées</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        
-                        <div class="example">
-                            <strong>Cas pratique : Différence entre commerçant et non-commerçant</strong><br>
-                            • <strong>Commerçant</strong> : Ali achète chaque semaine des téléphones en gros et les revend dans sa boutique avec une marge bénéficiaire.<br>
-                            • <strong>Non-commerçant</strong> : Karim achète un lot de téléphones par hasard et les revend occasionnellement à ses amis.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sub-section">
-                <h3>3. Personne physique vs Personne morale</h3>
-                <div class="qa-item">
-                    <div class="question">Quelles sont les différences fondamentales entre le commerçant personne physique et personne morale ?</div>
-                    <div class="answer">
-                        <div class="comparison">
-                            <div class="comparison-box">
-                                <h4>COMMERÇANT PERSONNE PHYSIQUE</h4>
-                                <ul>
-                                    <li><strong>Nature :</strong> Être humain individuel</li>
-                                    <li><strong>Existence :</strong> Naissance → Décès</li>
-                                    <li><strong>Responsabilité :</strong> ILLIMITÉE sur tout le patrimoine</li>
-                                    <li><strong>Patrimoine :</strong> Pas de distinction patrimoine personnel/professionnel</li>
-                                    <li><strong>Gestion :</strong> Directe et personnelle</li>
-                                    <li><strong>Création :</strong> Simple (immatriculation au RC)</li>
-                                    <li><strong>Transmission :</strong> Cession du fonds de commerce</li>
-                                    <li><strong>Exemple :</strong> Épicier, boulanger, artisan</li>
-                                </ul>
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">1</div>
+                                <div class="q-title">Qu'est-ce qu'un contrat de société selon le droit marocain ?</div>
                             </div>
-                            <div class="comparison-box">
-                                <h4>COMMERÇANT PERSONNE MORALE</h4>
-                                <ul>
-                                    <li><strong>Nature :</strong> Entité juridique créée par la loi</li>
-                                    <li><strong>Existence :</strong> Immatriculation → Radiation</li>
-                                    <li><strong>Responsabilité :</strong> LIMITÉE aux apports (sauf exceptions)</li>
-                                    <li><strong>Patrimoine :</strong> Patrimoine social distinct</li>
-                                    <li><strong>Gestion :</strong> Par des organes (directoire, conseil d'administration)</li>
-                                    <li><strong>Création :</strong> Complexe (statuts, dépôt, publicité)</li>
-                                    <li><strong>Transmission :</strong> Cession des parts/actions</li>
-                                    <li><strong>Exemple :</strong> SARL, SA, SNC, SCS</li>
-                                </ul>
+                            <div class="answer-content">
+                                <p>L'article 982 du D.O.C. (Code des Obligations et Contrats) définit la société comme : <em>"un contrat par lequel deux ou plusieurs personnes mettent en commun, leurs biens ou leur travail, ou tous les deux à la fois, en vue de partager le bénéfice qui pourra en résulter"</em>.</p>
+                                
+                                <div class="feature-list">
+                                    <h4>Éléments essentiels du contrat de société :</h4>
+                                    <ul>
+                                        <li><strong>Les associés</strong> : Au moins deux personnes (sauf SARL unipersonnelle)</li>
+                                        <li><strong>Les apports</strong> : Chaque associé doit contribuer au capital social</li>
+                                        <li><strong>La participation aux bénéfices</strong> : But lucratif de la société</li>
+                                        <li><strong>L'affectio societatis</strong> : Volonté de collaborer sur un pied d'égalité</li>
+                                        <li><strong>L'objet social</strong> : Activité envisagée par la société</li>
+                                        <li><strong>La cause</strong> : Raison légitime de la constitution</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="legal-box">
-                            <strong>Régime de responsabilité :</strong><br>
-                            • <strong>Personne physique :</strong> "En cas de dettes commerciales, le commerçant répond sur l'ensemble de ses biens, présents et à venir" (Art. 124 du Code des obligations)<br>
-                            • <strong>Personne morale (SARL) :</strong> "Les associés ne supportent les pertes qu'à concurrence de leurs apports" (Art. 35 de la loi 5-96)
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">2</div>
+                                <div class="q-title">Quels sont les types d'apports possibles dans une société ?</div>
+                            </div>
+                            <div class="answer-content">
+                                <p>Les associés peuvent faire trois types d'apports :</p>
+                                
+                                <div class="feature-list">
+                                    <h4>1. Apport en numéraire :</h4>
+                                    <ul>
+                                        <li><strong>Nature</strong> : Contribution en argent</li>
+                                        <li><strong>Libération</strong> : Selon les règles de chaque type de société</li>
+                                        <li><strong>Vérification</strong> : Attestation de blocage en banque</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-list">
+                                    <h4>2. Apport en nature :</h4>
+                                    <ul>
+                                        <li><strong>Nature</strong> : Biens meubles ou immeubles, corporels ou incorporels</li>
+                                        <li><strong>Exemples</strong> : Fonds de commerce, matériel, immeubles, brevets</li>
+                                        <li><strong>Évaluation</strong> : Par un commissaire aux apports (obligatoire pour certaines formes)</li>
+                                        <li><strong>Libération</strong> : Intégrale dès la constitution</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-list">
+                                    <h4>3. Apport en industrie :</h4>
+                                    <ul>
+                                        <li><strong>Nature</strong> : Mise à disposition de travail, services, connaissances</li>
+                                        <li><strong>Particularité</strong> : Ne fait pas partie du capital social mais donne droit aux bénéfices</li>
+                                        <li><strong>Restrictions</strong> : Interdit dans certaines formes (SA)</li>
+                                        <li><strong>Pratique</strong> : Souvent remplacé par un contrat de travail</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 3: ACCÈS À LA PROFESSION -->
-        <div class="section">
-            <h2><i>🚪</i> Accès à la profession commerciale</h2>
-            
-            <div class="qa-item">
-                <div class="question">Quel est le principe fondamental régissant l'accès au commerce ?</div>
-                <div class="answer">
-                    Le <strong>principe de la liberté du commerce et de l'industrie</strong> est consacré par l'article 35 de la Constitution marocaine de 2011. Ce principe comprend :
-                    <ul>
-                        <li>Liberté de s'établir commerçant ou industriel</li>
-                        <li>Liberté de choisir le lieu d'implantation</li>
-                        <li>Liberté de déterminer la nature de l'activité</li>
-                        <li>Liberté d'organisation et de gestion</li>
-                        <li>Liberté de cumuler plusieurs activités (sauf incompatibilités)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="qa-item">
-                <div class="question">Quelles sont les principales restrictions à la liberté d'entreprendre ?</div>
-                <div class="answer">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Type de restriction</th>
-                                <th>Base légale</th>
-                                <th>Justification</th>
-                                <th>Exemples</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Incapacités</strong></td>
-                                <td>Code de la famille (Art. 209 et s.), Code de commerce (Art. 13)</td>
-                                <td>Protection des personnes vulnérables</td>
-                                <td>Mineurs non émancipés, majeurs sous tutelle</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Incompatibilités</strong></td>
-                                <td>Déontologie professionnelle</td>
-                                <td>Indépendance et neutralité des fonctions</td>
-                                <td>Fonctionnaires, juges, militaires, professions libérales</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Interdictions professionnelles</strong></td>
-                                <td>Code de commerce (Art. 750), Code pénal</td>
-                                <td>Protection de l'ordre public économique</td>
-                                <td>Condamnés pour banqueroute, escroquerie</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Activités réglementées</strong></td>
-                                <td>Lois spéciales</td>
-                                <td>Protection de l'intérêt général</td>
-                                <td>Pharmacie (agrément), transports (licence), banque (agrément BAM)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Monopoles publics</strong></td>
-                                <td>Lois sectorielles</td>
-                                <td>Souveraineté économique</td>
-                                <td>Tabac (Régie), phosphates (OCP), loterie nationale</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    
-                    <div class="example">
-                        <strong>Cas des mineurs :</strong><br>
-                        Le mineur ne peut normalement pas exercer le commerce. Cependant, deux dérogations existent :<br>
-                        1. <strong>Émancipation anticipée</strong> dès 16 ans (déclaration au tribunal de famille)<br>
-                        2. <strong>Autorisation judiciaire</strong> pour mineur "doué de discernement" (sous contrôle d'un tuteur)
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 4: OBLIGATIONS DU COMMERÇANT -->
-        <div class="section">
-            <h2><i>⚖️</i> Obligations légales du commerçant</h2>
-            
-            <div class="qa-item">
-                <div class="question">Quelles sont les obligations principales imposées par le droit commercial marocain ?</div>
-                <div class="answer">
-                    <div class="sub-section">
-                        <h4>A. L'immatriculation au registre du commerce</h4>
-                        <ul>
-                            <li><strong>Base légale :</strong> Articles 27 à 47 du Code de commerce</li>
-                            <li><strong>Délai :</strong> 3 mois à compter du début de l'activité (Art. 38)</li>
-                            <li><strong>Organisation :</strong> Registres locaux (tribunaux) + Registre central (OMPIC)</li>
-                            <li><strong>Procédure électronique :</strong> Via les CRI (Centres Régionaux d'Investissement) depuis la loi 88-17 de 2019</li>
-                            <li><strong>Informations à fournir :</strong> Identité complète, activité, siège, dirigeants, statuts...</li>
-                            <li><strong>Sanctions :</strong> Amende 1 000-5 000 DH (omission) ; 50 000 DH et/ou prison (fraude)</li>
-                        </ul>
                         
-                        <div class="legal-box">
-                            <strong>Articles 62 à 64 du Code de commerce :</strong><br>
-                            "Tout commerçant non immatriculé qui exerce une activité commerciale est passible d'une amende de 1 000 à 5 000 dirhams. En cas d'immatriculation frauduleuse, l'amende peut atteindre 50 000 dirhams et une peine d'emprisonnement d'un mois à un an peut être prononcée."
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">3</div>
+                                <div class="q-title">Quelles sont les conditions de validité du contrat de société ?</div>
+                            </div>
+                            <div class="answer-content">
+                                <p>Le contrat de société doit respecter des conditions de fond et de forme :</p>
+                                
+                                <div class="feature-list">
+                                    <h4>Conditions de fond (art. 987 D.O.C.) :</h4>
+                                    <ul>
+                                        <li><strong>Consentement libre et éclairé</strong> : Sans vice (erreur, dol, violence)</li>
+                                        <li><strong>Capacité juridique</strong> : Les associés doivent avoir la capacité de contracter</li>
+                                        <li><strong>Objet licite</strong> : L'activité doit être légale</li>
+                                        <li><strong>Cause licite</strong> : La raison de la société doit être conforme à l'ordre public</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-list">
+                                    <h4>Conditions de forme :</h4>
+                                    <ul>
+                                        <li><strong>Statuts écrits</strong> : Authentiques ou sous seing privé</li>
+                                        <li><strong>Sociétés civiles</strong> : Acte écrit et enregistré si objet immobilier ou durée > 3 ans</li>
+                                        <li><strong>Sociétés commerciales</strong> : Immatriculation au registre de commerce obligatoire</li>
+                                        <li><strong>Publicité</strong> : Publication au bulletin officiel et dans un journal d'annonces légales</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="important-note">
+                                    <div class="important-title">Différence société civile/commerciale :</div>
+                                    <p>La société civile n'est soumise à aucune formalité de dépôt au tribunal ni de publicité (ex: société de gestion agricole), sauf exceptions. Les sociétés commerciales doivent obligatoirement être immatriculées au registre de commerce.</p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                        
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">4</div>
+                                <div class="q-title">Quelles sont les causes de dissolution d'une société ?</div>
+                            </div>
+                            <div class="answer-content">
+                                <p>Selon l'article 1051 du D.O.C., une société peut être dissoute pour plusieurs raisons :</p>
+                                
+                                <div class="feature-list">
+                                    <h4>Causes de dissolution :</h4>
+                                    <ul>
+                                        <li><strong>Expiration du terme</strong> : À l'échéance de la durée fixée</li>
+                                        <li><strong>Réalisation de l'objet</strong> : L'objectif de la société est atteint</li>
+                                        <li><strong>Extinction de la chose commune</strong> : Disparition du patrimoine social</li>
+                                        <li><strong>Décès d'un associé</strong> : Sauf clause de continuation</li>
+                                        <li><strong>Faillite ou liquidation judiciaire</strong> : D'un associé (sociétés de personnes)</li>
+                                        <li><strong>Volonté commune</strong> : Décision unanime des associés</li>
+                                        <li><strong>Renonciation</strong> : D'un ou plusieurs associés</li>
+                                        <li><strong>Autorité de justice</strong> : Dans les cas prévus par la loi</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="example-box">
+                                    <div class="example-title">Liquidation de la société :</div>
+                                    <p>Après dissolution, la société entre en liquidation. Cette phase comprend : la vente des actifs, le paiement des créanciers sociaux, et le partage de l'actif net restant entre les associés selon leurs droits.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                     
-                    <div class="sub-section">
-                        <h4>B. La tenue d'une comptabilité régulière</h4>
-                        <ul>
-                            <li><strong>Base légale :</strong> Articles 18 à 26 du Code de commerce + Loi 9-88</li>
-                            <li><strong>Livres obligatoires :</strong> Journal, Grand-livre, Inventaire (Art. 2 loi 9-88)</li>
-                            <li><strong>Principes comptables :</strong> Régularité, fidélité, prudence, permanence des méthodes</li>
-                            <li><strong>Conservation :</strong> 10 ans (Art. 22 loi 9-88)</li>
-                            <li><strong>Valeur probante :</strong> Preuve entre commerçants (Art. 433 DOC)</li>
-                            <li><strong>Sanctions :</strong> Déchéance commerciale, amendes 10 000-100 000 DH, prison 1-5 ans</li>
-                        </ul>
-                    </div>
+                    <!-- Section 2 -->
+                    <section class="section" id="sec2">
+                        <h2>II. Formalités de Constitution des Sociétés Commerciales</h2>
+                        
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">5</div>
+                                <div class="q-title">Quelles sont les principales formalités de création d'une société commerciale au Maroc ?</div>
+                            </div>
+                            <div class="answer-content">
+                                <p>Les Centre Régionaux d'Investissement (CRI) simplifient les démarches en regroupant les différents intervenants. Voici les 11 formalités principales :</p>
+                                
+                                <div class="formality-list">
+                                    <div class="formality-item">
+                                        <div class="formality-title">1. Certificat négatif auprès de l'OMPIC</div>
+                                        <p>Vérification de la disponibilité de la dénomination sociale auprès de l'Office Marocain de la Propriété Industrielle et Commerciale.</p>
+                                    </div>
+                                    
+                                    <div class="formality-item">
+                                        <div class="formality-title">2. Établissement des statuts</div>
+                                        <p>Rédaction de l'acte constitutif (notarié ou sous seing privé). Mentions obligatoires : montant des apports, forme juridique, durée, dénomination, siège, objet, modalités de fonctionnement, etc.</p>
+                                    </div>
+                                    
+                                    <div class="formality-item">
+                                        <div class="formality-title">3. Bulletins de souscription et actes d'apport</div>
+                                        <p>Pour SA, SAS et SCA : établissement des bulletins de souscription et éventuellement des actes d'apport en nature.</p>
+                                    </div>
+                                    
+                                    <div class="formality-item">
+                                        <div class="formality-title">4. Blocage du capital libéré</div>
+                                        <p>Dépôt du montant du capital libéré dans un compte bancaire bloqué (pour SA, SARL, SAS, SNC, SCA).</p>
+                                    </div>
+                                    
+                                    <div class="formality-item">
+                                        <div class="formality-title">5. Déclaration de souscription et de versement</div>
+                                        <p>Pour SA, SAS et SCA : établissement par le notaire ou sous seing privé, sur base des bulletins et de l'attestation bancaire.</p>
+                                    </div>
+                                    
+                                    <div class="formality-item">
+                                        <div class="formality-title">6. Publication au journal d'annonces légales et au bulletin officiel</div>
+                                        <p>Publicité obligatoire avant l'immatriculation au registre de commerce.</p>
+                                    </div>
+                                    
+                                    <div class="formality-item">
+                                        <div class="formality-title">7. Dépôt des actes et enregistrement</div>
+                                        <p>Dépôt auprès de la Direction Régionale des Impôts pour enregistrement (SA, SARL, SNC, SCS, SCA).</p>
+                                    </div>
+                                    
+                                    <div class="formality-item">
+                                        <div class="formality-title">8. Inscription à la taxe professionnelle et obtention de l'identifiant fiscal</div>
+                                        <p>Pour les sociétés commerciales : TP (Taxe Professionnelle), IS (Impôt sur les Sociétés), TVA.</p>
+                                    </div>
+                                    
+                                    <div class="formality-item">
+                                        <div class="formality-title">9. Immatriculation au registre de commerce</div>
+                                        <p>Formalité essentielle qui confère la personnalité morale à la société.</p>
+                                    </div>
+                                    
+                                    <div class="formality-item">
+                                        <div class="formality-title">10. Affiliation à la CNSS</div>
+                                        <p>Affiliation de l'entreprise et déclaration du personnel à la Caisse Nationale de Sécurité Sociale.</p>
+                                    </div>
+                                    
+                                    <div class="formality-item">
+                                        <div class="formality-title">11. Déclaration d'existence à l'inspection du travail</div>
+                                        <p>Déclaration obligatoire auprès de l'inspection du travail.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="important-note">
+                                    <div class="important-title">Rôle des CRI (Centres Régionaux d'Investissement) :</div>
+                                    <p>Les CRI fonctionnent comme des "guichets uniques" qui regroupent les représentants de : OMPIC, CNSS, Services des Impôts, Tribunal de Commerce, Inspection du Travail et Service de Légalisation. Cette concentration simplifie considérablement les démarches de création d'entreprise.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                     
-                    <div class="sub-section">
-                        <h4>C. Autres obligations spécifiques</h4>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Obligation</th>
-                                    <th>Base légale</th>
-                                    <th>Contenu</th>
-                                    <th>Sanctions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Compte bancaire</strong></td>
-                                    <td>Art. 18 Code de commerce</td>
-                                    <td>Obligatoire pour tout commerçant ; paiements > 10 000 DH par chèque ou virement</td>
-                                    <td>Amendes fiscales</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Facturation</strong></td>
-                                    <td>Art. 51 loi sur les prix</td>
-                                    <td>Facture obligatoire pour toute vente professionnelle ; mentions légales obligatoires</td>
-                                    <td>Amendes administratives</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Publicité légale</strong></td>
-                                    <td>Divers textes</td>
-                                    <td>Publication des actes importants (statuts, modifications, nantissements)</td>
-                                    <td>Inefficacité vis-à-vis des tiers</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <!-- Section 3 -->
+                    <section class="section" id="sec3">
+                        <h2>III. Les Sociétés de Personnes</h2>
+                        
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">6</div>
+                                <div class="q-title">Qu'est-ce qu'une société de personnes et quelles sont ses caractéristiques ?</div>
+                            </div>
+                            <div class="answer-content">
+                                <p>Les sociétés de personnes sont fondées sur l'<em>intuitu personae</em> (considération de la personne). La confiance entre associés est essentielle.</p>
+                                
+                                <div class="feature-list">
+                                    <h4>Caractéristiques communes :</h4>
+                                    <ul>
+                                        <li><strong>Intuitu personae</strong> : Les associés se connaissent et se font confiance</li>
+                                        <li><strong>Responsabilité illimitée</strong> : Les associés répondent indéfiniment des dettes sociales</li>
+                                        <li><strong>Parts non librement cessibles</strong> : Cession soumise à l'accord des autres associés</li>
+                                        <li><strong>Effet des événements personnels</strong> : Décès ou incapacité d'un associé peut entraîner dissolution</li>
+                                        <li><strong>Qualité de commerçant</strong> : Les associés ont généralement la qualité de commerçant</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-list">
+                                    <h4>Types de sociétés de personnes :</h4>
+                                    <ul>
+                                        <li><strong>Société en Nom Collectif (SNC)</strong> : Tous associés responsables solidairement</li>
+                                        <li><strong>Société en Commandite Simple (SCS)</strong> : Commandités (responsables) + Commanditaires (limités)</li>
+                                        <li><strong>Société en Participation (SEP)</strong> : Société occulte sans personnalité morale</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">7</div>
+                                <div class="q-title">Quelles sont les particularités de la Société en Nom Collectif (SNC) ?</div>
+                            </div>
+                            <div class="answer-content">
+                                <p>La SNC est régie par la loi 5-96 (Dahir du 13 février 1997) et présente des caractéristiques spécifiques :</p>
+                                
+                                <div class="feature-list">
+                                    <h4>Avantages de la SNC :</h4>
+                                    <ul>
+                                        <li><strong>Constitution simple</strong> : Pas de capital minimum, apports en industrie possibles</li>
+                                        <li><strong>Souplesse de fonctionnement</strong> : Grande liberté statutaire</li>
+                                        <li><strong>Crédit facilité</strong> : Responsabilité illimitée rassure les créanciers</li>
+                                        <li><strong>Stabilité de la gérance</strong> : Révocation du gérant associé exige l'unanimité</li>
+                                        <li><strong>Option fiscale</strong> : Transparence fiscale ou option pour l'IS</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-list">
+                                    <h4>Inconvénients de la SNC :</h4>
+                                    <ul>
+                                        <li><strong>Responsabilité illimitée et solidaire</strong> : Risque pour le patrimoine personnel</li>
+                                        <li><strong>Qualité de commerçant</strong> : Contraintes professionnelles</li>
+                                        <li><strong>Unanimité paralysante</strong> : Pour certaines décisions importantes</li>
+                                        <li><strong>Effet des événements personnels</strong> : Décès entraîne dissolution sauf clause contraire</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="example-box">
+                                    <div class="example-title">Utilisation pratique de la SNC :</div>
+                                    <p>La SNC est souvent utilisée comme filiale commune entre sociétés mères, permettant une gestion égalitaire. Elle sert aussi d'"écran" pour limiter l'exposition des sociétés mères tout en bénéficiant de la responsabilité illimitée pour rassurer les créanciers.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">8</div>
+                                <div class="q-title">Qu'est-ce qu'une Société en Participation (SEP) et comment fonctionne-t-elle ?</div>
+                            </div>
+                            <div class="answer-content">
+                                <p>La SEP est une société occulte sans personnalité morale, utilisée pour des opérations ponctuelles.</p>
+                                
+                                <div class="feature-list">
+                                    <h4>Caractéristiques de la SEP :</h4>
+                                    <ul>
+                                        <li><strong>Pas d'immatriculation</strong> : Société occulte ou ostensible</li>
+                                        <li><strong>Pas de personnalité morale</strong> : Pas de patrimoine social distinct</li>
+                                        <li><strong>Pas de capacité juridique</strong> : Ne contracte pas en son nom</li>
+                                        <li><strong>Constitution simple</strong> : Même pas d'écrit obligatoire (mais recommandé)</li>
+                                        <li><strong>Utilisation</strong> : Projets ponctuels, cofinancement, coopération temporaire</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-list">
+                                    <h4>Fonctionnement de la SEP :</h4>
+                                    <ul>
+                                        <li><strong>Interne</strong> : Règles des sociétés civiles (SEP civile) ou SNC (SEP commerciale)</li>
+                                        <li><strong>Externe</strong> : Chaque associé contracte en son nom
+                                            <ul>
+                                                <li>SEP occulte : Seul le contractant est engagé</li>
+                                                <li>SEP ostensible : Tous les participants sont tenus comme associés en nom</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Extinction</strong> : Règlement de comptes (pas de liquidation sociale formelle)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Section 4 -->
+                    <section class="section" id="sec4">
+                        <h2>IV. Les Sociétés de Capitaux</h2>
+                        
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">9</div>
+                                <div class="q-title">Qu'est-ce qu'une Société Anonyme (SA) et quelles sont ses caractéristiques ?</div>
+                            </div>
+                            <div class="answer-content">
+                                <p>La SA est la forme typique des sociétés de capitaux, adaptée aux grandes entreprises.</p>
+                                
+                                <div class="feature-list">
+                                    <h4>Caractéristiques essentielles de la SA :</h4>
+                                    <ul>
+                                        <li><strong>Nombre d'actionnaires</strong> : Minimum 5</li>
+                                        <li><strong>Capital minimum</strong> :
+                                            <ul>
+                                                <li>3.000.000 DH avec appel public à l'épargne</li>
+                                                <li>300.000 DH sans appel public à l'épargne</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Actions</strong> : Valeur minimale 50 DH (10 DH si cotée)</li>
+                                        <li><strong>Responsabilité</strong> : Limitée aux apports</li>
+                                        <li><strong>Cession des actions</strong> : Libre en principe</li>
+                                        <li><strong>Durée maximale</strong> : 99 ans</li>
+                                        <li><strong>Apports en industrie</strong> : Interdits</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-list">
+                                    <h4>Modes de gestion de la SA :</h4>
+                                    <ul>
+                                        <li><strong>Modèle classique</strong> : Conseil d'administration (3-12 membres) + PDG ou DG</li>
+                                        <li><strong>Modèle dualiste</strong> : Directoire (gestion) + Conseil de surveillance (contrôle)</li>
+                                        <li><strong>Commissaire aux comptes</strong> : Obligatoire (2 minimum si appel public à l'épargne)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="important-note">
+                                    <div class="important-title">Appel public à l'épargne :</div>
+                                    <p>Une SA fait appel public à l'épargne lorsqu'elle : est cotée en bourse, fait appel à des banques ou sociétés de bourse, ou utilise la publicité pour vendre ses actions. Cela entraîne des obligations renforcées (capital minimum plus élevé, plus de commissaires aux comptes, administrateurs indépendants, etc.).</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">10</div>
+                                <div class="q-title">Qu'est-ce qu'une Société par Actions Simplifiée (SAS) ?</div>
+                            </div>
+                            <div class="answer-content">
+                                <p>La SAS, introduite par la loi 19-20, offre une grande souplesse aux associés.</p>
+                                
+                                <div class="feature-list">
+                                    <h4>Caractéristiques de la SAS :</h4>
+                                    <ul>
+                                        <li><strong>Nombre d'associés</strong> : 1 ou plusieurs (SASU = SAS unipersonnelle)</li>
+                                        <li><strong>Capital social</strong> : Aucun minimum exigé</li>
+                                        <li><strong>Apports</strong> : Numéraire, nature, ou industrie (avec actions inaliénables)</li>
+                                        <li><strong>Libération</strong> : ¼ pour numéraire (reste en 3 ans), intégrale pour nature</li>
+                                        <li><strong>Appel public à l'épargne</strong> : Interdit</li>
+                                        <li><strong>Gestion</strong> : Très souple, dirigée par un président obligatoire</li>
+                                        <li><strong>Commissaire aux comptes</strong> : Facultatif sauf seuils dépassés</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="example-box">
+                                    <div class="example-title">Pourquoi choisir une SAS ?</div>
+                                    <p>La SAS est idéale pour : les startups (pas de capital minimum), les projets modernes nécessitant de la flexibilité, les investisseurs souhaitant une structure souple sans possibilité d'accéder à la bourse. Sa grande liberté statutaire permet d'adapter parfaitement l'organisation aux besoins spécifiques du projet.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">11</div>
+                                <div class="q-title">Qu'est-ce qu'une Société en Commandite par Actions (SCA) ?</div>
+                            </div>
+                            <div class="answer-content">
+                                <p>La SCA combine des caractéristiques des sociétés de personnes et de capitaux.</p>
+                                
+                                <div class="feature-list">
+                                    <h4>Structure de la SCA :</h4>
+                                    <ul>
+                                        <li><strong>Commandités</strong> : Commerçants, responsables indéfiniment et solidairement, gèrent la société</li>
+                                        <li><strong>Commanditaires</strong> : Actionnaires, responsables à concurrence de leurs apports</li>
+                                        <li><strong>Capital</strong> : Divisé en actions</li>
+                                        <li><strong>Gérant</strong> : Obligatoirement commandité, nommé avec accord unanime des commandités</li>
+                                        <li><strong>Conseil de surveillance</strong> : Minimum 3 actionnaires, commandités exclus</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-list">
+                                    <h4>Particularités de la SCA :</h4>
+                                    <ul>
+                                        <li><strong>Pouvoirs du gérant</strong> : Très étendus, opposables aux tiers</li>
+                                        <li><strong>Révocation</strong> : Possible selon statuts ou judiciairement pour cause légitime</li>
+                                        <li><strong>Rémunération</strong> : Fixée par statuts ou AGO, ne peut être prélevée sur part des commandités sauf clause</li>
+                                        <li><strong>Conseil de surveillance</strong> : Contrôle la gestion mais ne gère pas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Section 5 -->
+                    <section class="section" id="sec5">
+                        <h2>V. La Société à Responsabilité Limitée (SARL) - Forme Hybride</h2>
+                        
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">12</div>
+                                <div class="q-title">Qu'est-ce qu'une SARL et pourquoi est-elle si populaire ?</div>
+                            </div>
+                            <div class="answer-content">
+                                <p>La SARL est la forme de société la plus utilisée pour les PME au Maroc, combinant des aspects des sociétés de personnes et de capitaux.</p>
+                                
+                                <div class="feature-list">
+                                    <h4>Caractéristiques essentielles de la SARL :</h4>
+                                    <ul>
+                                        <li><strong>Nombre d'associés</strong> : 1 à 50 (SARL unipersonnelle possible)
+                                            <ul>
+                                                <li>Si > 50 : obligation de transformation en SA dans 2 ans, sinon dissolution</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Capital social</strong> : Aucun minimum légal</li>
+                                        <li><strong>Responsabilité</strong> : Limitée aux apports</li>
+                                        <li><strong>Parts sociales</strong> : Non librement cessibles</li>
+                                        <li><strong>Apports</strong> : Numéraire, nature (libérés immédiatement), industrie (autorisés mais ne font pas partie du capital)</li>
+                                        <li><strong>Durée maximale</strong> : 99 ans</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-list">
+                                    <h4>Organisation de la SARL :</h4>
+                                    <ul>
+                                        <li><strong>Gérant</strong> : Un ou plusieurs, associé ou non, représente la société</li>
+                                        <li><strong>Assemblée générale</strong> :
+                                            <ul>
+                                                <li>Décisions ordinaires : majorité simple</li>
+                                                <li>Modification statuts : ¾ du capital social</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Commissaire aux comptes</strong> : Obligatoire si CA > 50 millions DH</li>
+                                        <li><strong>Dissolution</strong> : Pas automatique par décès, incapacité ou faillite personnelle d'un associé</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="example-box">
+                                    <div class="example-title">Avantages de la SARL pour les PME :</div>
+                                    <p>La SARL est idéale pour les petites et moyennes entreprises car elle : protège le patrimoine personnel des associés, est simple à gérer, ne nécessite pas de capital minimum, permet une certaine souplesse dans l'organisation, et évite la qualité de commerçant pour les associés.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Section 6 -->
+                    <section class="section" id="sec6">
+                        <h2>VI. Tableau Comparatif des Sociétés Commerciales</h2>
+                        
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">13</div>
+                                <div class="q-title">Comment choisir la forme juridique adaptée à son projet ?</div>
+                            </div>
+                            <div class="answer-content">
+                                <p>Le choix de la forme juridique dépend de nombreux critères : nombre d'associés, capital disponible, niveau de risque acceptable, besoins de souplesse, etc.</p>
+                                
+                                <table class="comparison-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Critères</th>
+                                            <th>SNC</th>
+                                            <th>SARL</th>
+                                            <th>SA</th>
+                                            <th>SAS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Nombre min. d'associés</strong></td>
+                                            <td>2</td>
+                                            <td>1</td>
+                                            <td>5</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Responsabilité</strong></td>
+                                            <td>Illimitée et solidaire</td>
+                                            <td>Limitée aux apports</td>
+                                            <td>Limitée aux apports</td>
+                                            <td>Limitée aux apports</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Capital minimum</strong></td>
+                                            <td>Aucun</td>
+                                            <td>Aucun</td>
+                                            <td>300.000 DH (3M si appel public)</td>
+                                            <td>Aucun</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Qualité de commerçant</strong></td>
+                                            <td>Oui</td>
+                                            <td>Non (sauf gérant associé)</td>
+                                            <td>Non</td>
+                                            <td>Non</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Cession des parts/actions</strong></td>
+                                            <td>Unanimité requise</td>
+                                            <td>Agrément souvent requis</td>
+                                            <td>Libre en principe</td>
+                                            <td>Selon statuts</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Gestion</strong></td>
+                                            <td>Tous associés gérants sauf clause</td>
+                                            <td>Gérant(s) désigné(s)</td>
+                                            <td>Conseil d'administration ou Directoire</td>
+                                            <td>Très souple, président obligatoire</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Appel public à l'épargne</strong></td>
+                                            <td>Non</td>
+                                            <td>Non</td>
+                                            <td>Possible</td>
+                                            <td>Interdit</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Comm. aux comptes</strong></td>
+                                            <td>Non obligatoire</td>
+                                            <td>Si CA > 50M DH</td>
+                                            <td>Toujours obligatoire</td>
+                                            <td>Facultatif (sauf seuils)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Durée max</strong></td>
+                                            <td>Indéterminée</td>
+                                            <td>99 ans</td>
+                                            <td>99 ans</td>
+                                            <td>99 ans</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <div class="important-note">
+                                    <div class="important-title">Conseil pour le choix :</div>
+                                    <p><strong>SNC</strong> : Pour petites équipes très soudées, projets nécessitant une grande confiance mutuelle, lorsque la responsabilité illimitée peut rassurer les créanciers.<br>
+                                    <strong>SARL</strong> : Pour la majorité des PME, offre un bon équilibre entre protection et simplicité.<br>
+                                    <strong>SA</strong> : Pour les projets importants nécessitant des capitaux substantiels, éventuellement avec perspective d'appel public à l'épargne.<br>
+                                    <strong>SAS</strong> : Pour les startups et projets innovants nécessitant une grande flexibilité organisationnelle.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- Contenu en arabe -->
+                <div class="arabic" id="arabic-content">
+                    <!-- Section 1 arabe -->
+                    <section class="section" id="sec1-ar">
+                        <h2>I. عقد الشركة</h2>
+                        
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">1</div>
+                                <div class="q-title">ما هو عقد الشركة وفق القانون المغربي؟</div>
+                            </div>
+                            <div class="answer-content">
+                                <p>يعرف الفصل 982 من قانون الالتزامات والعقود الشركة بأنها: <em>"عقد بمقتضاه يضع شخصان أو أكثر أموالهم أو عملهم أو هما معاً لتكون مشتركة بينهم بقصد تقسيم الربح الذي قد ينشأ عنها"</em>.</p>
+                                
+                                <div class="feature-list">
+                                    <h4>عناصر عقد الشركة الأساسية:</h4>
+                                    <ul>
+                                        <li><strong>الشركاء</strong>: شخصان على الأقل (باستثناء الشركة ذات المسؤولية المحدودة ذات الشريك الوحيد)</li>
+                                        <li><strong>الحصص</strong>: يجب على كل شريك المساهمة في رأس المال الاجتماعي</li>
+                                        <li><strong>المشاركة في الأرباح</strong>: الغرض الربحي للشركة</li>
+                                        <li><strong>النية المشتركة للتعاون</strong>: إرادة التعاون على قدم المساواة</li>
+                                        <li><strong>الغرض الاجتماعي</strong>: النشاط الذي تزمع الشركة ممارسته</li>
+                                        <li><strong>السبب</strong>: الدافع المشروع للتأسيس</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="detailed-question">
+                            <div class="question-header">
+                                <div class="q-number">2</div>
+                                <div class="q-title">ما هي أنواع الحصص الممكنة في الشركة؟</div>
+                            </div>
+                            <div class="answer-content">
+                                <p>يمكن للشركاء تقديم ثلاثة أنواع من الحصص:</p>
+                                
+                                <div class="feature-list">
+                                    <h4>1. الحصة النقدية:</h4>
+                                    <ul>
+                                        <li><strong>الطبيعة</strong>: مساهمة نقدية</li>
+                                        <li><strong>التحرير</strong>: حسب قواعد كل نوع من الشركات</li>
+                                        <li><strong>التحقق</strong>: شهادة إيداع في البنك</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-list">
+                                    <h4>2. الحصة العينية:</h4>
+                                    <ul>
+                                        <li><strong>الطبيعة</strong>: أموال منقولة أو عقارية، مادية أو معنوية</li>
+                                        <li><strong>أمثلة</strong>: المحل التجاري، المعدات، العقارات، براءات الاختراع</li>
+                                        <li><strong>التقييم</strong>: بواسطة مقيم الحصص (إجباري لبعض الأشكال)</li>
+                                        <li><strong>التحرير</strong>: كامل عند التأسيس</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="feature-list">
+                                    <h4>3. الحصة بالعمل:</h4>
+                                    <ul>
+                                        <li><strong>الطبيعة</strong>: تقديم العمل، الخدمات، المعارف</li>
+                                        <li><strong>خصوصية</strong>: لا تدخل في رأس المال الاجتماعي ولكن تعطي الحق في الأرباح</li>
+                                        <li><strong>موانع</strong>: ممنوعة في بعض الأشكال (الشركة المساهمة)</li>
+                                        <li><strong>الممارسة</strong>: غالباً ما يتم استبدالها بعقد عمل</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Plus de contenu arabe... -->
+                        
+                        <div class="important-note">
+                            <div class="important-title">معلومة مهمة:</div>
+                            <p>هذا النص باللغة العربية هو ترجمة للنص الفرنسي أعلاه. في النسخة الكاملة، سيتم ترجمة جميع الأقسام بالكامل بنفس مستوى التفصيل.</p>
+                        </div>
+                    </section>
+                    
+                    <!-- Les autres sections en arabe suivraient la même structure -->
                 </div>
             </div>
         </div>
-
-        <!-- SECTION 5: ACTES DE COMMERCE -->
-        <div class="section">
-            <h2><i>📋</i> Les actes de commerce : Classification et régime</h2>
-            
-            <div class="qa-item">
-                <div class="question">Comment sont classés les actes de commerce selon le droit marocain ?</div>
-                <div class="answer">
-                    <div class="comparison">
-                        <div class="comparison-box">
-                            <h4>ACTES DE COMMERCE PAR NATURE</h4>
-                            <strong>Articles 6-8 Code de commerce</strong>
-                            <ul>
-                                <li>Achat pour revente (biens meubles)</li>
-                                <li>Opérations de banque, change, assurance</li>
-                                <li>Entreprises de manufacture, d'édition</li>
-                                <li>Activités industrielles ou de transport</li>
-                                <li>Exploitation de mines, carrières</li>
-                                <li>Activités maritimes et aériennes</li>
-                            </ul>
-                            <div class="legal-ref">Critère : L'objet même de l'acte</div>
-                        </div>
-                        <div class="comparison-box">
-                            <h4>ACTES DE COMMERCE PAR LA FORME</h4>
-                            <strong>Article 9 Code de commerce</strong>
-                            <ul>
-                                <li>Lettre de change (toujours commerciale)</li>
-                                <li>Billet à ordre (si lié à opération commerciale)</li>
-                                <li>Sociétés commerciales par leur forme</li>
-                                <li>Effets de commerce</li>
-                            </ul>
-                            <div class="legal-ref">Critère : La forme juridique de l'acte</div>
-                        </div>
-                        <div class="comparison-box">
-                            <h4>ACTES DE COMMERCE PAR ACCESSOIRE</h4>
-                            <strong>Article 10 Code de commerce</strong>
-                            <ul>
-                                <li>Actes civils liés à l'activité commerciale</li>
-                                <li>Présomption simple de commercialité</li>
-                                <li>Preuve contraire possible</li>
-                                <li>Ex. : Prêt pour financer le stock</li>
-                            </ul>
-                            <div class="legal-ref">Critère : Le lien avec l'activité professionnelle</div>
-                        </div>
-                        <div class="comparison-box">
-                            <h4>ACTES MIXTES</h4>
-                            <strong>Doctrine et jurisprudence</strong>
-                            <ul>
-                                <li>Commerciaux pour une partie</li>
-                                <li>Civils pour l'autre partie</li>
-                                <li>Problème du régime applicable</li>
-                                <li>Ex. : Vente commerciale à un particulier</li>
-                            </ul>
-                            <div class="legal-ref">Critère : La qualité des parties</div>
-                        </div>
-                    </div>
-                </div>
+        
+        <footer>
+            <div class="footer-content">
+                <p>هذا الدليل مبني على الوثيقة "Axe-III.doc" ويتناول موضوع قانون الشركات التجارية المغربي</p>
+                <p>This guide is based on the document "Axe-III.doc" and covers the topic of Moroccan commercial company law</p>
+                <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">© 2023 - دليل تعليمي لأغراض تربوية - Guide pédagogique à des fins éducatives</p>
             </div>
-
-            <div class="qa-item">
-                <div class="question">Quel est le régime juridique spécifique des actes de commerce ?</div>
-                <div class="answer">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Aspect</th>
-                                <th>Droit commercial</th>
-                                <th>Droit civil</th>
-                                <th>Base légale</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Preuve</strong></td>
-                                <td>Liberté de la preuve</td>
-                                <td>Preuve écrite souvent exigée</td>
-                                <td>Art. 334 Code de commerce vs Art. 443 DOC</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Solidarité</strong></td>
-                                <td>Présumée entre débiteurs</td>
-                                <td>Nécessite clause expresse</td>
-                                <td>Art. 335 Code de commerce vs Art. 164 DOC</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Prescription</strong></td>
-                                <td>5 ans</td>
-                                <td>15 ans</td>
-                                <td>Art. 388 DOC vs Art. 387 DOC</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Délai de grâce</strong></td>
-                                <td>Pas de délai pour effets de commerce</td>
-                                <td>Délai possible (bienveillance du juge)</td>
-                                <td>Art. 231 Code de commerce vs Art. 243 DOC</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Compétence</strong></td>
-                                <td>Tribunal de commerce</td>
-                                <td>Tribunal de première instance</td>
-                                <td>Loi 53-95 sur les tribunaux de commerce</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Anatocisme</strong></td>
-                                <td>Autorisé (comptes courants)</td>
-                                <td>Interdit (sauf exceptions)</td>
-                                <td>Usage commercial vs Art. 874 DOC</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 6: ACTIVITÉS NON COMMERCIALES -->
-        <div class="section">
-            <h2><i>🚫</i> Activités exclues du droit commercial</h2>
-            
-            <div class="qa-item">
-                <div class="question">Quelles activités échappent au régime du droit commercial ?</div>
-                <div class="answer">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Activité</th>
-                                <th>Nature juridique</th>
-                                <th>Justification</th>
-                                <th>Exceptions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Activités agricoles</strong></td>
-                                <td>Civile</td>
-                                <td>Production naturelle, non spéculative</td>
-                                <td>Élevage industriel, achat pour revente</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Professions libérales</strong></td>
-                                <td>Civile</td>
-                                <td>Prestation intellectuelle, déontologie</td>
-                                <td>Exercice sous forme de société commerciale</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Personnes publiques</strong></td>
-                                <td>Droit public</td>
-                                <td>Mission d'intérêt général</td>
-                                <td>Filiales à caractère industriel/commercial</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Activités intellectuelles</strong></td>
-                                <td>Civile</td>
-                                <td>Création artistique ou littéraire</td>
-                                <td>Exploitation commerciale des droits</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Associations</strong></td>
-                                <td>Droit civil</td>
-                                <td>But non lucratif</td>
-                                <td>Activité économique lucrative</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    
-                    <div class="example">
-                        <strong>Cas de l'agriculture :</strong><br>
-                        • <strong>Activité civile :</strong> Cultiver son champ et vendre sa récolte<br>
-                        • <strong>Activité commerciale :</strong> Acheter des céréales pour les revendre après transformation<br>
-                        • <strong>Activité commerciale :</strong> Élevage industriel avec achat d'animaux pour engraissement et revente
-                    </div>
-                </div>
-            </div>
-        </div>
+        </footer>
     </div>
 
-    <footer>
-        <p><strong>Document complet - Droit de l'entreprise - Axe I : Le commerçant et les actes de commerce</strong></p>
-        <p>Faculté des Sciences Économiques - Semestre 3 - Année universitaire 2025-2026</p>
-        <p style="margin-top: 15px; font-size: 0.9em; color: #a0aec0;">
-            Ce document constitue un support pédagogique détaillé. Pour une étude approfondie, consulter le Code de commerce marocain,<br>
-            la loi 5-96 sur les sociétés de personnes et la SARL, la loi 17-95 sur les sociétés anonymes, et la loi 9-88 sur les obligations comptables.
-        </p>
-    </footer>
+    <script>
+        // Fonction pour changer de langue
+        function switchLanguage(lang) {
+            // Mettre à jour les onglets de langue
+            document.querySelectorAll('.lang-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            if (lang === 'french') {
+                document.querySelector('.lang-tab:nth-child(1)').classList.add('active');
+            } else {
+                document.querySelector('.lang-tab:nth-child(2)').classList.add('active');
+            }
+            
+            // Afficher/masquer le contenu et la table des matières
+            document.getElementById('french-content').classList.remove('active');
+            document.getElementById('arabic-content').classList.remove('active');
+            document.getElementById('french-toc').classList.remove('active');
+            document.getElementById('arabic-toc').classList.remove('active');
+            
+            document.getElementById(lang + '-content').classList.add('active');
+            document.getElementById(lang + '-toc').classList.add('active');
+            
+            // Réinitialiser la table des matières
+            resetTocHighlight();
+        }
+        
+        // Fonction pour mettre en évidence le lien dans la table des matières
+        function highlightTocLink(link) {
+            // Retirer la classe active de tous les liens
+            const allLinks = link.parentElement.parentElement.querySelectorAll('a');
+            allLinks.forEach(l => l.classList.remove('active'));
+            
+            // Ajouter la classe active au lien cliqué
+            link.classList.add('active');
+        }
+        
+        // Fonction pour réinitialiser la mise en évidence
+        function resetTocHighlight() {
+            document.querySelectorAll('.toc a').forEach(link => {
+                link.classList.remove('active');
+            });
+        }
+        
+        // Suivi du défilement pour la table des matières
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            const scrollPosition = window.scrollY + 100;
+            
+            let currentSectionId = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    currentSectionId = section.id;
+                }
+            });
+            
+            // Mettre à jour la table des matières active
+            if (currentSectionId) {
+                const activeLang = document.querySelector('.lang-tab.active').textContent.includes('Français') ? 'french' : 'arabic';
+                const toc = document.getElementById(activeLang + '-toc');
+                
+                if (toc) {
+                    const allLinks = toc.querySelectorAll('a');
+                    allLinks.forEach(link => link.classList.remove('active'));
+                    
+                    const correspondingLink = toc.querySelector(`a[href="#${currentSectionId}"]`);
+                    if (correspondingLink) {
+                        correspondingLink.classList.add('active');
+                    }
+                }
+            }
+        });
+        
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Activer le premier lien de la table des matières
+            const firstTocLink = document.querySelector('#french-toc a');
+            if (firstTocLink) {
+                firstTocLink.classList.add('active');
+            }
+        });
+    </script>
 </body>
 </html>
