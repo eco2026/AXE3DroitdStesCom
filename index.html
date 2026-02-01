@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Droit de l'entreprise - Détails complets sur le commerçant et les actes de commerce</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f8fafc;
+            color: #2d3748;
+            line-height: 1.7;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 35px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            text-align: center;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+        .course-info {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 6px solid #3498db;
+        }
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-size: 1.7rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ecf0f1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section h2 i {
+            font-size: 1.4rem;
+        }
+        .sub-section {
+            margin-bottom: 25px;
+        }
+        .sub-section h3 {
+            color: #2980b9;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            padding-left: 10px;
+            border-left: 4px solid #3498db;
+        }
+        .qa-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #2ecc71;
+        }
+        .question {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .question:before {
+            content: "▶";
+            color: #e74c3c;
+            font-size: 1.1rem;
+        }
+        .answer {
+            color: #4a5568;
+            padding-left: 24px;
+        }
+        .answer ul, .answer ol {
+            margin: 12px 0 12px 25px;
+        }
+        .answer li {
+            margin-bottom: 8px;
+            padding-left: 5px;
+        }
+        .legal-box {
+            background: #e8f4fc;
+            border: 1px solid #a3d5ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+        }
+        .legal-ref {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background: #f1f8ff;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .warning {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .example {
+            background: #f0f9ff;
+            border-left: 4px solid #4fc3f7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 0.95rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        th {
+            background: #3498db;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        tr:hover {
+            background: #f7fafc;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .comparison-box {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid #3498db;
+        }
+        .comparison-box h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            color: #718096;
+            font-size: 0.95rem;
+            border-top: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 10px;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .section {
+                padding: 20px;
+            }
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Droit de l'entreprise - Axe I</h1>
+        <p class="subtitle">Le commerçant et les actes de commerce - Document détaillé</p>
+        <div class="course-info">
+            <p><strong>Enseignante :</strong> Pr. AANAIBER Meryem</p>
+            <p><strong>Année universitaire :</strong> 2025-2026 | <strong>Semestre :</strong> 3 Sciences Économiques</p>
+            <p><strong>Objectif :</strong> Comprendre les fondements juridiques de l'activité commerciale au Maroc</p>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <!-- SECTION 1: INTRODUCTION -->
+        <div class="section">
+            <h2><i>📚</i> Introduction au droit de l'entreprise</h2>
+            <div class="qa-item">
+                <div class="question">Quelle est la définition complète du droit de l'entreprise ?</div>
+                <div class="answer">
+                    Le droit de l'entreprise est une <strong>branche spécialisée du droit privé</strong> qui réglemente l'ensemble des aspects juridiques de la vie économique des entreprises. Son champ d'application couvre :
+                    <ul>
+                        <li>La <strong>création</strong> de l'entreprise (choix de la forme juridique, formalités de constitution)</li>
+                        <li>Son <strong>organisation</strong> interne (organes de direction, répartition des pouvoirs)</li>
+                        <li>Son <strong>fonctionnement</strong> au quotidien (contrats, relations avec les partenaires)</li>
+                        <li>Ses <strong>relations externes</strong> (avec les clients, fournisseurs, concurrents, administrations)</li>
+                        <li>Sa <strong>transformation</strong> et sa <strong>disparition</strong> (fusion, scission, liquidation)</li>
+                    </ul>
+                    
+                    <div class="legal-box">
+                        <strong>Caractéristiques principales :</strong><br>
+                        1. <strong>Droit dynamique et évolutif</strong> : S'adapte aux mutations économiques et technologiques<br>
+                        2. <strong>Droit pluridisciplinaire</strong> : Combine plusieurs branches du droit<br>
+                        3. <strong>Droit économique</strong> : A pour finalité le développement de l'activité économique<br>
+                        4. <strong>Droit professionnel</strong> : Régit l'activité des professionnels du commerce
+                    </div>
+                    
+                    <div class="comparison">
+                        <div class="comparison-box">
+                            <h4>Sources formelles</h4>
+                            <ul>
+                                <li>Code de commerce</li>
+                                <li>Lois spéciales (sociétés, concurrence, propriété intellectuelle)</li>
+                                <li>Dahir des Obligations et des Contrats (DOC)</li>
+                                <li>Jurisprudence commerciale</li>
+                                <li>Usages et pratiques commerciales</li>
+                                <li>Traités internationaux</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-box">
+                            <h4>Branches connexes</h4>
+                            <ul>
+                                <li><strong>Droit commercial</strong> : Activités des commerçants</li>
+                                <li><strong>Droit des sociétés</strong> : Personnes morales commerciales</li>
+                                <li><strong>Droit du travail</strong> : Relations employeur-salariés</li>
+                                <li><strong>Droit fiscal</strong> : Obligations financières envers l'État</li>
+                                <li><strong>Droit de la concurrence</strong> : Régulation du marché</li>
+                                <li><strong>Droit de la consommation</strong> : Protection des consommateurs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: LE COMMERÇANT -->
+        <div class="section">
+            <h2><i>👨‍💼</i> Le commerçant : Définition et statut</h2>
+            
+            <div class="sub-section">
+                <h3>1. Définition légale du commerçant</h3>
+                <div class="qa-item">
+                    <div class="question">Comment le Code de commerce marocain définit-il le commerçant ?</div>
+                    <div class="answer">
+                        L'article 6 du Code de commerce marocain stipule : <strong>"Est commerçant toute personne physique ou morale qui exerce des actes de commerce et en fait sa profession habituelle."</strong>
+                        
+                        <div class="example">
+                            <strong>Analyse des éléments de la définition :</strong><br>
+                            • <strong>"Personne physique ou morale"</strong> : Le commerçant peut être un individu ou une société<br>
+                            • <strong>"Exerce des actes de commerce"</strong> : Critère objectif basé sur la nature des activités<br>
+                            • <strong>"En fait sa profession habituelle"</strong> : Critère subjectif impliquant la régularité et la permanence
+                        </div>
+                        
+                        <div class="warning">
+                            <strong>Attention :</strong> La qualité de commerçant est une <strong>qualification légale</strong> qui produit des effets juridiques spécifiques (régime de preuve, compétence juridictionnelle, obligations particulières).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-section">
+                <h3>2. Les trois critères essentiels de la commercialité</h3>
+                <div class="qa-item">
+                    <div class="question">Quels sont les trois critères cumulatifs pour être qualifié de commerçant ?</div>
+                    <div class="answer">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Critère</th>
+                                    <th>Explication</th>
+                                    <th>Exemples</th>
+                                    <th>Jurisprudence</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>1. Actes de commerce</strong></td>
+                                    <td>Réalisation d'opérations figurant dans la liste légale des actes commerciaux (Art. 6 à 10 du Code de commerce)</td>
+                                    <td>Achat pour revendre, opérations de banque, activités industrielles</td>
+                                    <td>Doctrine classique : recherche du profit par la spéculation</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2. Habitude professionnelle</strong></td>
+                                    <td>Répétition des actes avec une certaine régularité, organisation et permanence</td>
+                                    <td>Activité journalière sur un marché vs achat ponctuel</td>
+                                    <td>Cour de cassation : "une activité organisée et répétée"</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3. Exercice indépendant</strong></td>
+                                    <td>Agir en son nom propre, pour son compte, en supportant les risques</td>
+                                    <td>Commerçant individuel vs salarié ou gérant mandataire</td>
+                                    <td>Exclusion des personnes subordonnées</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div class="example">
+                            <strong>Cas pratique : Différence entre commerçant et non-commerçant</strong><br>
+                            • <strong>Commerçant</strong> : Ali achète chaque semaine des téléphones en gros et les revend dans sa boutique avec une marge bénéficiaire.<br>
+                            • <strong>Non-commerçant</strong> : Karim achète un lot de téléphones par hasard et les revend occasionnellement à ses amis.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-section">
+                <h3>3. Personne physique vs Personne morale</h3>
+                <div class="qa-item">
+                    <div class="question">Quelles sont les différences fondamentales entre le commerçant personne physique et personne morale ?</div>
+                    <div class="answer">
+                        <div class="comparison">
+                            <div class="comparison-box">
+                                <h4>COMMERÇANT PERSONNE PHYSIQUE</h4>
+                                <ul>
+                                    <li><strong>Nature :</strong> Être humain individuel</li>
+                                    <li><strong>Existence :</strong> Naissance → Décès</li>
+                                    <li><strong>Responsabilité :</strong> ILLIMITÉE sur tout le patrimoine</li>
+                                    <li><strong>Patrimoine :</strong> Pas de distinction patrimoine personnel/professionnel</li>
+                                    <li><strong>Gestion :</strong> Directe et personnelle</li>
+                                    <li><strong>Création :</strong> Simple (immatriculation au RC)</li>
+                                    <li><strong>Transmission :</strong> Cession du fonds de commerce</li>
+                                    <li><strong>Exemple :</strong> Épicier, boulanger, artisan</li>
+                                </ul>
+                            </div>
+                            <div class="comparison-box">
+                                <h4>COMMERÇANT PERSONNE MORALE</h4>
+                                <ul>
+                                    <li><strong>Nature :</strong> Entité juridique créée par la loi</li>
+                                    <li><strong>Existence :</strong> Immatriculation → Radiation</li>
+                                    <li><strong>Responsabilité :</strong> LIMITÉE aux apports (sauf exceptions)</li>
+                                    <li><strong>Patrimoine :</strong> Patrimoine social distinct</li>
+                                    <li><strong>Gestion :</strong> Par des organes (directoire, conseil d'administration)</li>
+                                    <li><strong>Création :</strong> Complexe (statuts, dépôt, publicité)</li>
+                                    <li><strong>Transmission :</strong> Cession des parts/actions</li>
+                                    <li><strong>Exemple :</strong> SARL, SA, SNC, SCS</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="legal-box">
+                            <strong>Régime de responsabilité :</strong><br>
+                            • <strong>Personne physique :</strong> "En cas de dettes commerciales, le commerçant répond sur l'ensemble de ses biens, présents et à venir" (Art. 124 du Code des obligations)<br>
+                            • <strong>Personne morale (SARL) :</strong> "Les associés ne supportent les pertes qu'à concurrence de leurs apports" (Art. 35 de la loi 5-96)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: ACCÈS À LA PROFESSION -->
+        <div class="section">
+            <h2><i>🚪</i> Accès à la profession commerciale</h2>
+            
+            <div class="qa-item">
+                <div class="question">Quel est le principe fondamental régissant l'accès au commerce ?</div>
+                <div class="answer">
+                    Le <strong>principe de la liberté du commerce et de l'industrie</strong> est consacré par l'article 35 de la Constitution marocaine de 2011. Ce principe comprend :
+                    <ul>
+                        <li>Liberté de s'établir commerçant ou industriel</li>
+                        <li>Liberté de choisir le lieu d'implantation</li>
+                        <li>Liberté de déterminer la nature de l'activité</li>
+                        <li>Liberté d'organisation et de gestion</li>
+                        <li>Liberté de cumuler plusieurs activités (sauf incompatibilités)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">Quelles sont les principales restrictions à la liberté d'entreprendre ?</div>
+                <div class="answer">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type de restriction</th>
+                                <th>Base légale</th>
+                                <th>Justification</th>
+                                <th>Exemples</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Incapacités</strong></td>
+                                <td>Code de la famille (Art. 209 et s.), Code de commerce (Art. 13)</td>
+                                <td>Protection des personnes vulnérables</td>
+                                <td>Mineurs non émancipés, majeurs sous tutelle</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Incompatibilités</strong></td>
+                                <td>Déontologie professionnelle</td>
+                                <td>Indépendance et neutralité des fonctions</td>
+                                <td>Fonctionnaires, juges, militaires, professions libérales</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Interdictions professionnelles</strong></td>
+                                <td>Code de commerce (Art. 750), Code pénal</td>
+                                <td>Protection de l'ordre public économique</td>
+                                <td>Condamnés pour banqueroute, escroquerie</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Activités réglementées</strong></td>
+                                <td>Lois spéciales</td>
+                                <td>Protection de l'intérêt général</td>
+                                <td>Pharmacie (agrément), transports (licence), banque (agrément BAM)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Monopoles publics</strong></td>
+                                <td>Lois sectorielles</td>
+                                <td>Souveraineté économique</td>
+                                <td>Tabac (Régie), phosphates (OCP), loterie nationale</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="example">
+                        <strong>Cas des mineurs :</strong><br>
+                        Le mineur ne peut normalement pas exercer le commerce. Cependant, deux dérogations existent :<br>
+                        1. <strong>Émancipation anticipée</strong> dès 16 ans (déclaration au tribunal de famille)<br>
+                        2. <strong>Autorisation judiciaire</strong> pour mineur "doué de discernement" (sous contrôle d'un tuteur)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: OBLIGATIONS DU COMMERÇANT -->
+        <div class="section">
+            <h2><i>⚖️</i> Obligations légales du commerçant</h2>
+            
+            <div class="qa-item">
+                <div class="question">Quelles sont les obligations principales imposées par le droit commercial marocain ?</div>
+                <div class="answer">
+                    <div class="sub-section">
+                        <h4>A. L'immatriculation au registre du commerce</h4>
+                        <ul>
+                            <li><strong>Base légale :</strong> Articles 27 à 47 du Code de commerce</li>
+                            <li><strong>Délai :</strong> 3 mois à compter du début de l'activité (Art. 38)</li>
+                            <li><strong>Organisation :</strong> Registres locaux (tribunaux) + Registre central (OMPIC)</li>
+                            <li><strong>Procédure électronique :</strong> Via les CRI (Centres Régionaux d'Investissement) depuis la loi 88-17 de 2019</li>
+                            <li><strong>Informations à fournir :</strong> Identité complète, activité, siège, dirigeants, statuts...</li>
+                            <li><strong>Sanctions :</strong> Amende 1 000-5 000 DH (omission) ; 50 000 DH et/ou prison (fraude)</li>
+                        </ul>
+                        
+                        <div class="legal-box">
+                            <strong>Articles 62 à 64 du Code de commerce :</strong><br>
+                            "Tout commerçant non immatriculé qui exerce une activité commerciale est passible d'une amende de 1 000 à 5 000 dirhams. En cas d'immatriculation frauduleuse, l'amende peut atteindre 50 000 dirhams et une peine d'emprisonnement d'un mois à un an peut être prononcée."
+                        </div>
+                    </div>
+                    
+                    <div class="sub-section">
+                        <h4>B. La tenue d'une comptabilité régulière</h4>
+                        <ul>
+                            <li><strong>Base légale :</strong> Articles 18 à 26 du Code de commerce + Loi 9-88</li>
+                            <li><strong>Livres obligatoires :</strong> Journal, Grand-livre, Inventaire (Art. 2 loi 9-88)</li>
+                            <li><strong>Principes comptables :</strong> Régularité, fidélité, prudence, permanence des méthodes</li>
+                            <li><strong>Conservation :</strong> 10 ans (Art. 22 loi 9-88)</li>
+                            <li><strong>Valeur probante :</strong> Preuve entre commerçants (Art. 433 DOC)</li>
+                            <li><strong>Sanctions :</strong> Déchéance commerciale, amendes 10 000-100 000 DH, prison 1-5 ans</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sub-section">
+                        <h4>C. Autres obligations spécifiques</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Obligation</th>
+                                    <th>Base légale</th>
+                                    <th>Contenu</th>
+                                    <th>Sanctions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Compte bancaire</strong></td>
+                                    <td>Art. 18 Code de commerce</td>
+                                    <td>Obligatoire pour tout commerçant ; paiements > 10 000 DH par chèque ou virement</td>
+                                    <td>Amendes fiscales</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Facturation</strong></td>
+                                    <td>Art. 51 loi sur les prix</td>
+                                    <td>Facture obligatoire pour toute vente professionnelle ; mentions légales obligatoires</td>
+                                    <td>Amendes administratives</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Publicité légale</strong></td>
+                                    <td>Divers textes</td>
+                                    <td>Publication des actes importants (statuts, modifications, nantissements)</td>
+                                    <td>Inefficacité vis-à-vis des tiers</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: ACTES DE COMMERCE -->
+        <div class="section">
+            <h2><i>📋</i> Les actes de commerce : Classification et régime</h2>
+            
+            <div class="qa-item">
+                <div class="question">Comment sont classés les actes de commerce selon le droit marocain ?</div>
+                <div class="answer">
+                    <div class="comparison">
+                        <div class="comparison-box">
+                            <h4>ACTES DE COMMERCE PAR NATURE</h4>
+                            <strong>Articles 6-8 Code de commerce</strong>
+                            <ul>
+                                <li>Achat pour revente (biens meubles)</li>
+                                <li>Opérations de banque, change, assurance</li>
+                                <li>Entreprises de manufacture, d'édition</li>
+                                <li>Activités industrielles ou de transport</li>
+                                <li>Exploitation de mines, carrières</li>
+                                <li>Activités maritimes et aériennes</li>
+                            </ul>
+                            <div class="legal-ref">Critère : L'objet même de l'acte</div>
+                        </div>
+                        <div class="comparison-box">
+                            <h4>ACTES DE COMMERCE PAR LA FORME</h4>
+                            <strong>Article 9 Code de commerce</strong>
+                            <ul>
+                                <li>Lettre de change (toujours commerciale)</li>
+                                <li>Billet à ordre (si lié à opération commerciale)</li>
+                                <li>Sociétés commerciales par leur forme</li>
+                                <li>Effets de commerce</li>
+                            </ul>
+                            <div class="legal-ref">Critère : La forme juridique de l'acte</div>
+                        </div>
+                        <div class="comparison-box">
+                            <h4>ACTES DE COMMERCE PAR ACCESSOIRE</h4>
+                            <strong>Article 10 Code de commerce</strong>
+                            <ul>
+                                <li>Actes civils liés à l'activité commerciale</li>
+                                <li>Présomption simple de commercialité</li>
+                                <li>Preuve contraire possible</li>
+                                <li>Ex. : Prêt pour financer le stock</li>
+                            </ul>
+                            <div class="legal-ref">Critère : Le lien avec l'activité professionnelle</div>
+                        </div>
+                        <div class="comparison-box">
+                            <h4>ACTES MIXTES</h4>
+                            <strong>Doctrine et jurisprudence</strong>
+                            <ul>
+                                <li>Commerciaux pour une partie</li>
+                                <li>Civils pour l'autre partie</li>
+                                <li>Problème du régime applicable</li>
+                                <li>Ex. : Vente commerciale à un particulier</li>
+                            </ul>
+                            <div class="legal-ref">Critère : La qualité des parties</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">Quel est le régime juridique spécifique des actes de commerce ?</div>
+                <div class="answer">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Droit commercial</th>
+                                <th>Droit civil</th>
+                                <th>Base légale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Preuve</strong></td>
+                                <td>Liberté de la preuve</td>
+                                <td>Preuve écrite souvent exigée</td>
+                                <td>Art. 334 Code de commerce vs Art. 443 DOC</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Solidarité</strong></td>
+                                <td>Présumée entre débiteurs</td>
+                                <td>Nécessite clause expresse</td>
+                                <td>Art. 335 Code de commerce vs Art. 164 DOC</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Prescription</strong></td>
+                                <td>5 ans</td>
+                                <td>15 ans</td>
+                                <td>Art. 388 DOC vs Art. 387 DOC</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Délai de grâce</strong></td>
+                                <td>Pas de délai pour effets de commerce</td>
+                                <td>Délai possible (bienveillance du juge)</td>
+                                <td>Art. 231 Code de commerce vs Art. 243 DOC</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Compétence</strong></td>
+                                <td>Tribunal de commerce</td>
+                                <td>Tribunal de première instance</td>
+                                <td>Loi 53-95 sur les tribunaux de commerce</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Anatocisme</strong></td>
+                                <td>Autorisé (comptes courants)</td>
+                                <td>Interdit (sauf exceptions)</td>
+                                <td>Usage commercial vs Art. 874 DOC</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: ACTIVITÉS NON COMMERCIALES -->
+        <div class="section">
+            <h2><i>🚫</i> Activités exclues du droit commercial</h2>
+            
+            <div class="qa-item">
+                <div class="question">Quelles activités échappent au régime du droit commercial ?</div>
+                <div class="answer">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Activité</th>
+                                <th>Nature juridique</th>
+                                <th>Justification</th>
+                                <th>Exceptions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Activités agricoles</strong></td>
+                                <td>Civile</td>
+                                <td>Production naturelle, non spéculative</td>
+                                <td>Élevage industriel, achat pour revente</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Professions libérales</strong></td>
+                                <td>Civile</td>
+                                <td>Prestation intellectuelle, déontologie</td>
+                                <td>Exercice sous forme de société commerciale</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Personnes publiques</strong></td>
+                                <td>Droit public</td>
+                                <td>Mission d'intérêt général</td>
+                                <td>Filiales à caractère industriel/commercial</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Activités intellectuelles</strong></td>
+                                <td>Civile</td>
+                                <td>Création artistique ou littéraire</td>
+                                <td>Exploitation commerciale des droits</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Associations</strong></td>
+                                <td>Droit civil</td>
+                                <td>But non lucratif</td>
+                                <td>Activité économique lucrative</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="example">
+                        <strong>Cas de l'agriculture :</strong><br>
+                        • <strong>Activité civile :</strong> Cultiver son champ et vendre sa récolte<br>
+                        • <strong>Activité commerciale :</strong> Acheter des céréales pour les revendre après transformation<br>
+                        • <strong>Activité commerciale :</strong> Élevage industriel avec achat d'animaux pour engraissement et revente
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Document complet - Droit de l'entreprise - Axe I : Le commerçant et les actes de commerce</strong></p>
+        <p>Faculté des Sciences Économiques - Semestre 3 - Année universitaire 2025-2026</p>
+        <p style="margin-top: 15px; font-size: 0.9em; color: #a0aec0;">
+            Ce document constitue un support pédagogique détaillé. Pour une étude approfondie, consulter le Code de commerce marocain,<br>
+            la loi 5-96 sur les sociétés de personnes et la SARL, la loi 17-95 sur les sociétés anonymes, et la loi 9-88 sur les obligations comptables.
+        </p>
+    </footer>
+</body>
+</html>
